@@ -25,5 +25,9 @@ spec:
           ports:
             - containerPort: 80
           resources:
+            {{- if .Values.resources }}
             {{- toYaml .Values.resources | nindent 12 }}
+            {{- else }}
+            {}
+            {{- end }}
       
