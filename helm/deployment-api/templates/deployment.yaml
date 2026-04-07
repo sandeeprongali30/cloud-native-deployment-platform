@@ -13,6 +13,8 @@ spec:
     metadata:
       labels:
         app: {{ include "deployment-api.name" . }}
+      annotations:
+         rollout-trigger: "{{ now | quote }}"
     spec:
       serviceAccountName: {{ include "deployment-api.serviceAccountName" . }}
       containers:
