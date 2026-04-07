@@ -1,9 +1,17 @@
 replicaCount: 2
 
+# image:
+#   repository: deployment-api
+#   tag: "latest"
+#   pullPolicy: Never
+
 image:
   repository: deployment-api
-  tag: "latest"
+  tag: "v1"
   pullPolicy: Never
+
+env:
+  APP_VERSION: "v1"
 
 service:
   type: NodePort
