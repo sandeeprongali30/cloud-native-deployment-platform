@@ -21,7 +21,7 @@ spec:
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           env:
             - name: APP_VERSION
-              value: "{{ .Values.env.APP_VERSION }}"
+              value: {{ .Values.env.APP_VERSION | quote }}
           ports:
             - containerPort: 80
           resources:
