@@ -13,8 +13,6 @@ spec:
     metadata:
       labels:
         app: {{ include "deployment-api.name" . }}
-      annotations:
-         rollout-trigger: "{{ now | quote }}"
     spec:
       serviceAccountName: {{ include "deployment-api.serviceAccountName" . }}
       containers:
@@ -26,10 +24,4 @@ spec:
               value: {{ .Values.env.APP_VERSION | quote }}
           ports:
             - containerPort: 80
-          resources:
-            {{- if .Values.resources }}
-            {{- toYaml .Values.resources | nindent 12 }}
-            {{- else }}
-            {}
-            {{- end }}
-      
+          resources: {}
